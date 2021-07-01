@@ -1,32 +1,5 @@
 # Data Transformation
 
-Generally speaking, there are 2 types of data transformations:
-
-1. **Filter, merge or restructure data.** These operations do not alter the content
-of the data, but modify the general structure in some way. The simplest example
-would be selecting specific rows from a data frame, but you might do something
-more complex like combining data from several sources.
-
-2. **Compute or extract new features:** For example, rescaling a column in a data
-frame to change the temperature units from *Fahrenheit* to *Celsius*. This
-changes the values inside the data frame cells, so it *does* modify the data
-content. Another common transformation would be to compute an average or
-maximum of a feature, extracting new content from the data.
-
-For this module there are 2 assignments, both of which will require several
-transformations of each type. The goal is to practice with enough different
-types of transformations, such that by the end you will be well equipped to select
-and build useful transformations for your own data processing projects.
-
-This first assignment will be transformations that might, at least partially,
-seem familiar and is aimed to get you started with the module. The second
-assignment will contain some more complex transformations. As an additional
-exercise, it will be useful to try and classify what exact transformation you are applying for each part of the module.
-
-It is recommended to do both assignments as *Jupyter Notebooks*, as it can be
-useful to inspect or plot the data while you are transforming it. Writing
-a `.py` file is also permitted, if you prefer.
-
 ## KNMI data
 
 For this first assignment we will be using KNMI weather data, containing
@@ -36,7 +9,8 @@ to answer with this data is:
 * Can we find any visually compelling evidence for climate change in the form
 of increasing average temperatures in the Netherlands over the last century?
 
-Get started by downloading the data [here](tas_NLD.zip).
+Get started by downloading the data [here](tas_NLD.zip) and creating a Jupyter
+Notebook named `transformation_KNMI.ipynb`.
 
 ### Loading the data
 
@@ -143,3 +117,7 @@ averages over each decade and plot those. The [groupby()](https://pandas.pydata.
 function has quite a few different ways you can group elements. Try to find a
 way to use this function to group the data by decades and average them. Plot
 the resulting averages and the linear fitted line for those averages.
+
+## Submitting
+
+After finishing, submit your `transformation_KNMI.ipynb` file below.
