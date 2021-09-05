@@ -4,7 +4,7 @@
 For this assignment we'll be working with restaurant health code inspection
 data from the city of Seattle. It lists which restaurants were inspected when,
 and how severe any health code violations were. This might range from simple
-things like not having thermometers installed in the fridge and or a lack of
+things, like not having thermometers installed in the fridge or a lack of
 labeling on food containers, to more serious concerns like not separating raw
 and cooked foods, or not keeping the establishment clear of rodents and
 insects.
@@ -16,7 +16,7 @@ Get started by loading the data in `Health_Code_Violations_Seattle.csv` and
 take a first look at the type of data it contains. If you want to print the
 data frame, make sure to only print the [head](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html)
 as the file is reasonably large. For this whole assignment, you should take
-some care with what parts of the data you try to print and inspect, as is it
+some care with what parts of the data you try to print and inspect, as it
 can take quite a while to print all of it.
 
 We'll combine this data with restaurant reviews from *Yelp* to see if we can
@@ -53,7 +53,7 @@ inspections with reviews. However, `review.json` only contains `business_id`'s
 for each review, which we cannot directly link to the inspections. The
 `business_id`'s can be found in another file though, `business.json`, that also
 contains the more descriptive name and address information for the business.
-Linking each review to their respective business will therefore be a good first
+Linking each review to their respective business will, therefore, be a good first
 step.
 
 
@@ -62,12 +62,12 @@ step.
 Python has a built-in module for processing JSON files, unsurprisingly called
 `json`. You can load JSON objects from a string format using [loads()](https://docs.python.org/3.8/library/json.html#json.loads).
 The result will be some combination of dictionaries and lists, both familiar
-Python datastructures, which take the place of *objects* and *arrays* in JSON
+Python data structures, which take the place of *objects* and *arrays* in JSON
 respectively.
 
 Open the `business.json` file with a text editor and inspect what the structure
 is exactly. Write some code to read this file and process the JSON objects
-using `loads()` from the `json` module. If you need a refresher how to read
+using `loads()` from the `json` module. If you need a refresher on how to read
 files in Python, take a look [here](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files).
 
 As we've discussed earlier, we'll need to match these businesses to reviews,
@@ -110,7 +110,7 @@ Remember, _**never** print the whole data frame!_
 > between representing your data in a flat table-like structure, like a pandas
 > *DataFrame*, or a hierarchical structure consisting of dictionaries and lists,
 > like the *JSON* structure. Knowing both methods will be useful when choosing
-> the structures for you own data processing projects.
+> the structures for your own data processing projects.
 > <br/><br/>
 > The `business.json` data seems like it is actually very close to data you might
 > represent in a *DataFrame*. In fact, if the `'categories'` attribute wasn't a
@@ -127,7 +127,7 @@ Remember, _**never** print the whole data frame!_
 > different sources can easily be done in pandas: [merge DataFrames](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging)
 > <br/><br/>
 > Merging allows you to combine DataFrames based on values in a specific column,
-> making news rows consisting of each of the matched pairs, which would instantly
+> making new rows consisting of each of the matched pairs, which would instantly
 > solve the problem of matching the `business_id`'s of the reviews and of the
 > business descriptions together. Having a hierarchical representation has its advantages
 > too though, as all relevant data can be stored together; the reviews can just
@@ -145,7 +145,7 @@ Remember, _**never** print the whole data frame!_
 
 ### Merging the JSON reviews
 
-Now, lets actually merge the reviews into the business dictionary. Read the
+Now, let's actually merge the reviews into the business dictionary. Read the
 `review.json` file into your program, reusing some of the code from loading
 `business.json`. When you've loaded a review object, search for the
 corresponding business in your business dictionary and add the review to the
@@ -195,13 +195,13 @@ list of reviews there. The merged results should end up looking something like:
 
 ## Matching the inspections with reviews
 
-Next we'll get started with the harder part of combining this data: merging the
+Next, we'll get started with the harder part of combining this data: merging the
 inspection results into this same structure. Take a quick look at the file
 containing all the inspections, which you have already loaded at the start of this
 assignment. The most logical way to match these inspection results to the
 reviews is through using the name of the business, but since these names are
 written by different inspectors and reviewers, it might be hard to match them
-*exactly*. We could also include information like address to try and get a more
+*exactly*. We could also include information like addresses to try and get a more
 accurate match, but the address information in the inspection file seem to be
 missing often, so that probably won't improve results.
 
@@ -209,21 +209,21 @@ The business names in the inspection results look like they are formatted a
 little differently too, so we'll need to do some conversions to ensure they
 match the names used in the business descriptions. The names appear to be in
 uppercase, so that'll definitely be something to fix. Also, it is probably a
-good idea to remove any nonalphabetic characters, as those are very likely to
+good idea to remove any non-alphabetic characters, as those are very likely to
 be used inconsistently in different data sources. Write a function called
 `clean_name()`, which takes a restaurant name, converts it to all lowercase and
-removes any nonalphabetic characters.
+removes any non-alphabetic characters.
 
 When merging in the inspection results with the review data, we'll be
-repeatedly be searching for a restaurant with a specific name, and not its
-`business_id`. So while doing these conversions, it would also be a good idea
+repeatedly searching for a restaurant with a specific name, and not its
+`business_id`. So, while doing these conversions, it would also be a good idea
 to restructure the dictionary containing the data so we can easily search based
 on the name of the restaurant. The *values* of this new dictionary should be the
-same as in the old dictionary, but the *keys* should the cleaned restaurant
+same as in the old dictionary, but the *keys* should be the cleaned restaurant
 names, instead of the id's. Also, to clean up the data a little more, remove
 all restaurants that don't have any reviews, as they won't help answer our
 research question. Finally, add a new attribute `'inspections'`, containing an
-empty list, in each object, just like you did for the reviews, where all the
+empty list in each object, just like you did for the reviews, that all the
 inspection results can be merged into.
 
 > #### Sidenote: Efficiency of transformations
@@ -234,7 +234,7 @@ inspection results can be merged into.
 > the dictionary and one to search for every name, as one search itself will now
 > be $$O(1)$$ in the new dictionary. Compare that to the version using nested
 > loops to match the names, which would be $$O(N^2)$$, so *extremely* slow for
-> data this size. This transformation is therefore part restructuring (changing
+> data this size. This transformation is, therefore, part restructuring (changing
 > the keys by which the dictionary is indexed) and part content modification
 > (converting the restaurant names to the cleaned format), with the sole aim of
 > reducing the complexity of the next transformation.
@@ -280,7 +280,7 @@ The restructured dictionary should end up looking something like:
 
 Now apply the same `clean_name()` function to every name in the inspections
 DataFrame. Use [map()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.map.html)
-to apply the function to entire `'Name'` column at once and store the result in
+to apply the function to the entire `'Name'` column at once and store the result in
 that same column. Using the same `clean_name()` function to clean up both sources
 of data should ensure consistent results for this transformation, so names that
 started out the same should still match after these transformations are applied.
@@ -291,7 +291,7 @@ inspection to the list of inspections for that restaurant. Transform the row
 *Series* to a dictionary using [to_dict()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_dict.html),
 to make the data consistent in type.
 
-The final result of combining all these data files in single structure should
+The final result of combining all these data files in a single structure should
 look something like:
 
     {'youngs restaurant': {'business_id': 'IbRT1K1TQ7mFXjlIZ9onUw',
