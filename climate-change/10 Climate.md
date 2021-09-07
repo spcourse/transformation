@@ -19,7 +19,7 @@ function. Merge each of the resulting data frames together to a single data
 frame using a [concat()](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#concatenating-objects)
 operation.
 
-Print or output the resulting data frame and consider whether it looks correct. Now try
+Print or output the resulting data frame and consider whether it looks correct. Now, try
 to access each of the columns of the frame individually. You should be running
 into some unexpected errors, which are caused by the formatting of the data.
 Open one of the data files in a text editor and see if you can spot what
@@ -38,7 +38,7 @@ It is hard to tell if there is any kind of trend in the data, due to the large
 variations between the seasons each year, so we'll try to fit a straight line
 through the data to indicate that trend. For this we'll use the
 *scikit-learn* package, which contains many useful machine learning models.
-Try to import it the module with `import sklearn`. If the package is not installed yet,
+Try to import the module with `import sklearn`. If the package is not installed yet,
 follow the instructions [here](https://scikit-learn.org/stable/install.html).
 
 [Linear Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
@@ -65,7 +65,7 @@ easier to change the shape of the data if we convert the years *series* to a
 function and then [reshape()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html)
 the resulting array to the shape the error message suggests.
 
-Once the input data is the correct shape, calling the `fit` function will
+Once the input data is in the correct shape, calling the `fit` function will
 change the `model` to fit the data we have given it. In order to see the actual
 fitted line, we'll need to use the [predict()](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.predict)
 function. As we want to show the fit for the same years for which we fitted,
@@ -75,12 +75,12 @@ those years.
 
 Add an extra column to your data frame containing the results of fitting the
 linear model to the temperatures. Modify your plotting code to plot this fitted
-linear line in addition to original data and finally label both lines.
+linear line in addition to the original data and finally label both lines.
 
 ### Selecting months
 
 There seems to be a slight upward trend in the temperature, but it is still
-difficult to see with all the seasonal fluctuations. So next we'll just plot the
+difficult to see with all the seasonal fluctuations. So, next we'll just plot the
 averages for one specific month and try to reduce the seasonal variations in
 the plot that way. Use [Boolean indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-indexing)
 to filter out a specific month and plot the temperatures for *June*, *July* and
@@ -111,7 +111,7 @@ recombine the results with an [aggregation function](https://pandas.pydata.org/p
 Plot the year averages and linear fitted line for the combined data using your
 functions from before.
 
-The trend again appears to be a bit clearer, but could still use some
+The trend again appears to be a bit clearer, but it could still use some
 smoothing. As a last attempt to improve the plot, we'll try and compute the
 averages over each decade and plot those. The [groupby()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)
 function has quite a few different ways you can group elements. Try to find a

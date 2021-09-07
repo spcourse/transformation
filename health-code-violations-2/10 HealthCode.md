@@ -1,7 +1,7 @@
 
 # Health code inspections
 
-The second part of this exercise continues upon the first part, and will be programmed in the same Jupter Notebook: `transformation_YELP.ipynb`.
+The second part of this exercise continues upon the first part, and will be programmed in the same Jupyter Notebook: `transformation_YELP.ipynb`.
 
 ## Processing the combined data
 
@@ -15,7 +15,7 @@ instructions [here](https://www.nltk.org/install.html).
 We'll use a couple of very basic `nltk` features for processing the text;
 tokenization and stop words. Tokenization splits the text into words, which is
 essentially splitting on *spaces*, but also takes things like punctuation into
-account. Also, some words are so common we want to filter them from
+account. Also, some words are so common that we want to filter them from
 processing altogether, like the word *"the"*. These words are called
 *stopwords* and `nltk` has standard lists for many languages. Include the
 following code to load the list for English:
@@ -48,7 +48,7 @@ something like unlabeled food in the fridge is unlikely to directly affect the
 customer reviews. Take a look at the data containing the inspection results and
 see if you can come up with any good criteria for filtering these results.
 
-While defining your own criteria is a useful exercise, lets start out with
+While defining your own criteria is a useful exercise, let's start out with
 using a predefined set, so we can refer to the same results for the next few
 steps. What I ended up selecting was just filtering on `'Inspection Score'`,
 which seemed descriptive on how good or bad the inspection was, and also easy
@@ -57,9 +57,9 @@ maximum score, so the worst inspection the restaurant has ever gotten, as that
 seemed like it would give the best indication of health code standards.
 
 Looking at the type of violations listed in the inspection results, I ended up
-settling on; any restaurant with a maximum score under $$20$$ is a generally
+settling on the following criteria: any restaurant with a maximum score under $$20$$ is a generally
 clean restaurant, while a maximum score over $$70$$ indicates serious health
-code violations. This also results in nice distribution of approximately 120
+code violations. This also results in a nice distribution of approximately 120
 restaurants labeled as clean and 120 as serious violations.
 
 Loop over the dictionary containing all the data and divide the businesses and
@@ -71,21 +71,21 @@ list.
 
 ### Processing the reviews
 
-Next we'll actually process those reviews in both lists. Use the `nltk`
+Next, we'll actually process those reviews in both lists. Use the `nltk`
 function [word_tokenize()](https://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize)
 to split the text of each review into words. Convert all words to lowercase and
-remove any "words" that contain nonalphabetic characters (e.g. punctuation) or
+remove any "words" that contain non-alphabetic characters (e.g. punctuation) or
 words that are a part of the set of stopwords.
 
 The processed result should still consist of 2 lists, 1 for clean restaurants
 and 1 for those with violations. Within both these lists, all the processed
-words for a one business should be merged to into a single list. So, *both lists
+words for a one business should be merged into a single list. So, *both lists
 should consist of multiple lists of words, each containing all the processed
 words in all reviews for one specific restaurant.*
 
 ### Counting word occurrences
 
-Now let start with simply counting how often words occur in the clean
+Now, let's start with simply counting how often words occur in the clean
 restaurant reviews and how often they occur in the reviews of those with
 violations. Start out by combining all the lists with words for each business
 to a single list, which is called flattening the list. There are many ways to
@@ -96,23 +96,23 @@ result of this transformation should be two massive flat lists of words, one
 for each type of restaurant.
 
 Next, use the built-in [Counter](https://docs.python.org/3/library/collections.html#counter-objects)
-object to count how often elements occur in a list. Then select the 25
+object to count how often elements occur in a list. Then, select the 25
 [most_common()](https://docs.python.org/3/library/collections.html#collections.Counter.most_common)
 words for both lists and print them.
 
 ### Defining some better metrics
 
-It seems as though there is pretty generic formula for Yelp reviews, as the set
-of most common words appears to be nearly *identical* in both case. This could
+It seems as though there is a pretty generic formula for Yelp reviews, as the set
+of most common words appears to be nearly *identical* in both cases. This could
 have quite a few different causes; it could be because we're not filtering for
 the serious violations correctly, or that a single serious violation does not
-imply all bad reviews. For now we'll assume both of those are *not* the issue
+imply all bad reviews. For now, we'll assume both of those are *not* the issue
 and that some people (or bots) writing Yelp reviews are just not that creative.
-So, instead we will define a better ordering metric than just the most common
-word and try distinguish the two types of restaurant that way.
+So, instead, we will define a better ordering metric than just the most common
+word and try to distinguish the two types of restaurant that way.
 
 As there are so many commonalities between the word lists, a logical next step
-would be to try to find words common in reviews of restaurants with violations,
+would be to try to find words that are common in reviews of restaurants with violations,
 but uncommon in reviews of clean restaurants. For now, we'll just focus on the
 words that *do* actually occur in *both* lists, so we'll need to construct a
 set containing these common words. As you may have already noticed, `Counter`
@@ -124,14 +124,14 @@ of words occurring in both *key-sets* should actually be pretty easy.
 Using this set of words occurring in both `Counter` objects, we'll build a new
 dictionary where we normalize the count of every word by dividing it by the
 total count for that type of restaurant, making the values for both types
-more comparable. Then we'll use the ratio between the normalized counts of both
+more comparable. Then, we'll use the ratio between the normalized counts of both
 types to assign a final score to each word.
 
 $$score\_word = \dfrac{\frac{violations\_word\_count}{total\_violations\_count}}{\frac{clean\_word\_count}{total\_clean\_count}}$$
 
 Dividing by the normalized count of how often a word occurs in reviews of
-restaurants with *clean* inspection results, should give words that occur
-in those restaurant *less* a higher score. This combined rating for each word,
+restaurants with *clean* inspection results should give words that occur
+in those restaurants *less* a higher score. This combined rating for each word,
 based on the counts for both lists, can then be sorted to find the top 50 words
 with the highest score. Use the built-in function [sorted()](https://docs.python.org/3/library/functions.html#sorted)
 to construct this top 50 of words and print the results.
@@ -182,8 +182,8 @@ likely to be related to results of the inspection.
 
 * Tweak the word scoring in some other way and see if this improves the results.
 
-Implement any one of these extension, or come up with your own improvements and
-print the final top 50 of most indicative words. **In your notebook, clearly state what you did to improve your top 50, and whether your extension truely improved it.**
+Implement any one of these extensions or come up with your own improvements and
+print the final top 50 of most indicative words. **In your notebook, clearly state what you did to improve your top 50, and whether your extension truly improved it.**
 
 > Disclaimer: not having "cockroach/roach" and "inspection/inspection" does not _immediately_ mean that something's wrong with your code. Try checking with your TA if you're not sure.
 
@@ -193,13 +193,13 @@ print the final top 50 of most indicative words. **In your notebook, clearly sta
 Now that you have a good list of words to monitor for in *Yelp* reviews, you
 can build a program that does exactly that! Yelp also offers *API* end points
 where you can just send requests for specific data and get some *JSON* data
-back. From there building a monitoring system is quite straightforward,
+back. From there, building a monitoring system is quite straightforward,
 especially considering you already wrote code to load the JSON objects and
 process the review text.
 
 For a general introduction on what an API is and how to use it, read the blog
-post [here](https://www.dataquest.io/blog/python-api-tutorial/). Then take a
-look the documentation for the Yelp [api](https://www.yelp.com/developers/documentation/v3),
+post [here](https://www.dataquest.io/blog/python-api-tutorial/). Then, take a
+look at the documentation for the Yelp [api](https://www.yelp.com/developers/documentation/v3),
 specifically the end points [search](https://www.yelp.com/developers/documentation/v3/business_search)
 and [reviews](https://www.yelp.com/developers/documentation/v3/business_reviews).
 
