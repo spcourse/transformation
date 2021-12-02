@@ -117,7 +117,3 @@ averages over each decade and plot those. The [groupby()](https://pandas.pydata.
 function has quite a few different ways you can group elements. Try to find a
 way to use this function to group the data by decades and average them. Plot
 the resulting averages and the linear fitted line for those averages.
-
-## Submitting
-
-After finishing, submit your `transformation_KNMI.ipynb` file below.
