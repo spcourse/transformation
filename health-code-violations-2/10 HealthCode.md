@@ -215,14 +215,16 @@ follows:
 
 > Note that most APIs only allow you to send a limited amount of requests every
 day (in this case 5000 every day). Instead of re-running the code every time you
-changed or added something, try to create seperate cells that you only have to
+change or add something, try to create seperate cells that you only have to
 run once. This will prevent you from accidentally getting blocked for the rest
 of the day (although this is unlikely to happen).
 
 Write a program to actively monitor Yelp for **50** new restaurants in Seattle
 which get reviews that contain words from your top most indicative words for
 health code violations and add these to a list for future inspections by the
-*Washington State Department of Health*. It is entirely possible that there are
-no restaurants that have reviews that contain one or more of the words in your
-top 50 indicative words at all. In that case, include a word of which you are
-sure that it is in one of the reviews as a proof of concept.
+*Washington State Department of Health*. 
+
+> It is entirely possible that there are no restaurants that have reviews that 
+contain one or more of the words in your top 50 indicative words at all. In 
+that case, include a word of which you are sure that it is in one of the 
+reviews as a proof of concept.
