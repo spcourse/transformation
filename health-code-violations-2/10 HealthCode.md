@@ -222,7 +222,8 @@ of the day (although this is unlikely to happen).
 Write a program to actively monitor Yelp for **50** new restaurants in Seattle
 which get reviews that contain words from your top most indicative words for
 health code violations and add these to a list for future inspections by the
-*Washington State Department of Health*. 
+*Washington State Department of Health*. Print the names of these restaurants 
+and the words that indicated a violation for these restaurants.
 
 > It is entirely possible that there are no restaurants that have reviews that 
 contain one or more of the words in your top 50 indicative words at all. In 
