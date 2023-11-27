@@ -199,9 +199,9 @@ process the review text.
 
 For a general introduction on what an API is and how to use it, read the blog
 post [here](https://www.dataquest.io/blog/python-api-tutorial/). Then, take a
-look at the documentation for the Yelp [api](https://www.yelp.com/developers/documentation/v3),
-specifically the end points [search](https://www.yelp.com/developers/documentation/v3/business_search)
-and [reviews](https://www.yelp.com/developers/documentation/v3/business_reviews).
+look at the documentation for the Yelp [api](https://docs.developer.yelp.com/),
+specifically the end points [search](https://docs.developer.yelp.com/reference/v3_business_search)
+and [reviews](https://docs.developer.yelp.com/reference/v3_business_reviews).
 
 In addition, you will need to provide the API with an API key. To get the API key, register
 [here](https://www.yelp.com/login?return_url=%2Fdevelopers%2Fv3%2Fmanage_app).
@@ -222,10 +222,10 @@ of the day (although this is unlikely to happen).
 Write a program to actively monitor Yelp for **50** new restaurants in Seattle
 which get reviews that contain words from your top most indicative words for
 health code violations and add these to a list for future inspections by the
-*Washington State Department of Health*. Print the names of these restaurants 
+*Washington State Department of Health*. Print the names of these restaurants
 and the words that indicated a violation for these restaurants.
 
-> It is entirely possible that there are no restaurants that have reviews that 
-contain one or more of the words in your top 50 indicative words at all. In 
-that case, include a word of which you are sure that it is in one of the 
+> It is entirely possible that there are no restaurants that have reviews that
+contain one or more of the words in your top 50 indicative words at all. In
+that case, include a word of which you are sure that it is in one of the
 reviews as a proof of concept.
