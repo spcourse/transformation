@@ -198,8 +198,11 @@ especially considering you already wrote code to load the JSON objects and
 process the review text.
 
 For a general introduction on what an API is and how to use it, read the blog
-post [here](https://www.dataquest.io/blog/python-api-tutorial/). Then, take a
-look at the documentation for the Yelp [api](https://docs.developer.yelp.com/),
+post [here](https://www.dataquest.io/blog/python-api-tutorial/). Note that the
+`requests` library should already be installed for you, so there is no need to
+install it again.
+
+Then, take a look at the documentation for the Yelp [api](https://docs.developer.yelp.com/),
 specifically the end points [search](https://docs.developer.yelp.com/reference/v3_business_search)
 and [reviews](https://docs.developer.yelp.com/reference/v3_business_reviews).
 
