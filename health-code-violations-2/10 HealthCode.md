@@ -218,7 +218,7 @@ follows:
 
 > Note that most APIs only allow you to send a limited amount of requests every
 day (in this case 5000 every day). Instead of re-running the code every time you
-change or add something, try to create seperate cells that you only have to
+change or add something, try to create separate cells that you only have to
 run once. This will prevent you from accidentally getting blocked for the rest
 of the day (although this is unlikely to happen).
 
