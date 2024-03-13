@@ -217,10 +217,10 @@ follows:
     req = requests.get(url, params=params, headers=headers)
 
 > Note that most APIs only allow you to send a limited amount of requests every
-day (in this case 5000 every day). Instead of re-running the code every time you
+day (in this case 500 every day). Instead of re-running the code every time you
 change or add something, try to create separate cells that you only have to
 run once. This will prevent you from accidentally getting blocked for the rest
-of the day (although this is unlikely to happen).
+of the day.
 
 Write a program to actively monitor Yelp for **50** new restaurants in Seattle
 which get reviews that contain words from your top most indicative words for
