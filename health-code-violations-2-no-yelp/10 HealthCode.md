@@ -185,4 +185,4 @@ likely to be related to results of the inspection.
 Implement any one of these extensions or come up with your own improvements and
 print the final top 50 of most indicative words. **In your notebook, clearly state what you did to improve your top 50, and whether your extension truly improved it.**
 
-> Disclaimer: not having "cockroach/roach" and "inspection/inspection" does not _immediately_ mean that something's wrong with your code. Try checking with your TA if you're not sure.
+> Disclaimer: not having "cockroach/roach" and "inspection/inspection" does not _immediately_ mean that something's wrong with your code. Try checking with your TA if you're not sure.   
