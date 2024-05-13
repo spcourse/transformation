@@ -182,12 +182,16 @@ likely to be related to results of the inspection.
 
 * Tweak the word scoring in some other way and see if this improves the results.
 
-Implement any one of these extensions or come up with your own improvements and
-print the final top 50 of most indicative words. **In your notebook, clearly state what you did to improve your top 50, and whether your extension truly improved it.**
+Implement _at least two_ of these extensions or come up with your own improvements
+and print the final top 50 of most indicative words.
 
-> Disclaimer: not having "cockroach/roach" and "inspection/inspection" does not _immediately_ mean that something's wrong with your code. Try checking with your TA if you're not sure.
+**In your notebook, clearly state for each of your extensions what you did to improve your top 50, and whether your extension truly improved it.** Finally, compare your different extensions. You could, for
+example, list advantages and disadvantages of each of your methods, and explain
+why you would use a specific extension over another in specific situations.
 
+> Disclaimer: not having "cockroach/roach" and/or "inspection/inspection" does not _immediately_ mean that something's wrong with your code. Try checking with your TA if you're not sure.
 
+<!--
 ## Yelp API
 
 Now that you have a good list of words to monitor for in *Yelp* reviews, you
@@ -231,4 +235,4 @@ and the words that indicated a violation for these restaurants.
 > It is entirely possible that there are no restaurants that have reviews that
 contain one or more of the words in your top 50 indicative words at all. In
 that case, include a word of which you are sure that it is in one of the
-reviews as a proof of concept.
+reviews as a proof of concept. -->
